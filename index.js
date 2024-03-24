@@ -1,4 +1,5 @@
 #! /usr/bin/env node
+import chalk from "chalk";
 import inquirer from "inquirer";
 const answer = await inquirer.prompt([
     { message: "Enter first number", type: "number", name: "firstNumber" },
@@ -12,17 +13,17 @@ const answer = await inquirer.prompt([
 ]);
 //conditional statement
 if (answer.operator === "Addition") {
-    console.log(answer.firstNumber + answer.secondNumber);
+    console.log(chalk.bgBlue.bold.white.italic(answer.firstNumber + answer.secondNumber));
 }
 else if (answer.operator === "Subtraction") {
-    console.log(answer.firstNumber - answer.secondNumber);
+    console.log(chalk.bgGreen.bold.white.italic(answer.firstNumber - answer.secondNumber));
 }
 else if (answer.operator === "Multiplication") {
-    console.log(answer.firstNumber * answer.secondNumber);
+    console.log(chalk.bgMagenta.bold.white.italic(answer.firstNumber * answer.secondNumber));
 }
 else if (answer.operator === "Division") {
-    console.log(answer.firstNumber / answer.secondNumber);
+    console.log(chalk.bgCyan.bold.white.italic(answer.firstNumber / answer.secondNumber));
 }
 else {
-    console.log("Please select valid operator");
+    console.log(chalk.bgRed.bold.white.italic("Please select valid operator."));
 }
